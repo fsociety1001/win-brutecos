@@ -1,8 +1,5 @@
 program WinBruteLogon;
 
-{$APPTYPE CONSOLE}
-
-{$R *.res}
 
 uses
   System.SysUtils,
