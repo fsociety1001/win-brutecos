@@ -90,7 +90,7 @@ begin
     G_DEBUG := CommandLineOptionExists('v');
 
     {
-      Configure and start cracking process
+     configura protocolo e inicia o cracking
     }
     AWorkers := TWorkers.Create(AUserName, AWordlistMode, ADomainName);
 
@@ -107,13 +107,13 @@ begin
     end;
 
     {
-      Build wordlist in memory with chosen mode
+      Cria uma lista de palavras na memória com o modo escolhido
     }
     if not AWorkers.Build() then
       raise Exception.Create('Could not build wordlist in memory.');
 
     {
-      Start cracking process
+      Comece o processo de cracking
     }
     AWorkers.Start();
   except
