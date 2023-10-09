@@ -1,13 +1,3 @@
-(*******************************************************************************
-
-  Jean-Pierre LESUEUR (@DarkCoderSc)
-  https://www.phrozen.io/
-  jplesueur@phrozen.io
-
-  License : MIT
-
-*******************************************************************************)
-
 program WinBruteLogon;
 
 {$APPTYPE CONSOLE}
@@ -23,9 +13,6 @@ uses
   UntGlobalDefs in 'Units\UntGlobalDefs.pas',
   UntTypeDefs in 'Units\UntTypeDefs.pas';
 
-{-------------------------------------------------------------------------------
-  Help Banner
--------------------------------------------------------------------------------}
 procedure DisplayHelpBanner(AErrorMsg : String = ''; AFull : Boolean = False);
 begin
   if AFull then begin
@@ -66,9 +53,6 @@ begin
   end;
 end;
 
-{-------------------------------------------------------------------------------
-  Program Entry
--------------------------------------------------------------------------------}
 var AWorkers      : TWorkers      = nil;
     AUserName     : String        = '';
     ADomainName   : String        = '';
@@ -87,7 +71,7 @@ begin
       Exit();
     end;
 
-    // --
+
 
     if NOT GetCommandLineOption('u', AUserName) then
       raise EOptionException.Create('You need to specify a target username with option `-u`.\nYou can run `net user` command to enumerate available users.');
