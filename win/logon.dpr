@@ -16,9 +16,6 @@ begin
     WriteLn;
     WriteColoredWord('WinBruteLogon', FOREGROUND_GREEN);
     WriteLn(' PoC');
-    WriteLn('Jean-Pierre LESUEUR (@DarkCoderSc)');
-    WriteLn('https://github.com/darkcodersc');
-    WriteLn('https://www.phrozen.io/');
     WriteLn;
   end;
 
@@ -39,12 +36,12 @@ begin
   if AFull then begin
     WriteLn;
 
-    WriteLn('-h : Display this menu.');
-    WriteLn('-u : Username to crack.');
-    WriteLn('-d : Optional domain name.');
-    WriteLn('-w : Wordlist file.');
-    WriteLn(' - : Read wordlist from Stdin.');
-    WriteLn('-v : Verbose mode.');
+    WriteLn('-h : Exibir este menu.');
+    WriteLn('-u : Nome de usuário para crackear.');
+    WriteLn('-d : Nome de domínio opcional.');
+    WriteLn('-w : Arquivo de lista de palavras.');
+    WriteLn(' - : Leia a lista de palavras de Stdin.');
+    WriteLn('-v : Modo detalhado.');
 
     WriteLn;
   end;
@@ -71,7 +68,7 @@ begin
 
 
     if NOT GetCommandLineOption('u', AUserName) then
-      raise EOptionException.Create('You need to specify a target username with option `-u`.\nYou can run `net user` command to enumerate available users.');
+      raise EOptionException.Create('Você precisa especificar um nome de usuário de destino com a opção `-u`.\nVocê pode usar o commando `net user` para enumerar os usuários disponíveis.');
 
     if GetCommandLineOption('w', AWordlist) then begin
       AWordlistMode := wmFile;
@@ -83,7 +80,7 @@ begin
     ///
 
     if (AWordlistMode = wmUndefined) then
-      raise EOptionException.Create('You need to specify a wordlist file with option `-w` or via stdin with option `-`.');
+      raise EOptionException.Create('Você precisa especificar um arquivo de lista de palavras com a opção `-w` ou via stdin com opção `-`.');
 
     GetCommandLineOption('d', ADomainName);
 
@@ -110,7 +107,7 @@ begin
       Cria uma lista de palavras na memória com o modo escolhido
     }
     if not AWorkers.Build() then
-      raise Exception.Create('Could not build wordlist in memory.');
+      raise Exception.Create('Não foi possível criar a lista de palavras na memória.');
 
     {
       Comece o processo de cracking
