@@ -60,7 +60,7 @@ begin
 
   try
     {
-      Parse Parameters
+      parametros
     }
     if CommandLineOptionExists('h') then begin
       DisplayHelpBanner('', True);
